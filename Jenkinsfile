@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 build 'PES2UG22CS240-1'
-                'g++ main.cpp -o output'
+                sh 'g++ main.cpp -o output'
             }
         }
 
@@ -17,7 +17,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'deploy'
+                echo 'Starting deployment...'
+                sh 'exit 1' // 🔥 Intentional error to make deployment fail
             }
         }
     }
